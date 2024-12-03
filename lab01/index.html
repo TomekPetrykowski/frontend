@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex v2</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header><h2>Witaj w Pokedex v2!</h2></header>
+      <main>
+        <section id="search">
+          <input
+            name="search-input"
+            type="text"
+            id="search__field"
+            placeholder="Wpisz nazwę pokemona" />
+          <button id="search__btn">Szukaj</button>
+        </section>
+        <section id="pokemon-list"></section>
+      </main>
+    </div>
+    <div id="overlay"></div>
+    <aside id="details">
+      <button id="close-btn">X</button>
+      <div class="image">
+        <img src="" alt="" />
+      </div>
+      <div class="info">
+        <div class="header">
+          <h2 class="name">Pikachu</h2>
+          <div class="types">
+            <div class="type">electric</div>
+            <div class="type">shiny</div>
+          </div>
+        </div>
+        <div class="stats">
+          <h3 class="title">Statystyki</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>punkty</th>
+                <th>wysiłek</th>
+              </tr>
+            </thead>
+            <tbody id="stats-table"></tbody>
+          </table>
+        </div>
+        <div class="other">
+          <h3 class="title">Inne</h3>
+          <table>
+            <tr>
+              <th>wzrost</th>
+              <td id="stat-height">5</td>
+            </tr>
+            <tr>
+              <th>waga</th>
+              <td id="stat-weight">10</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </aside>
+  </body>
+</html>
