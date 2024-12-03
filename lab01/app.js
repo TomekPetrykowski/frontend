@@ -4,7 +4,7 @@ const searchField = document.querySelector("#search__field");
 let pokemons = [];
 let deckDisplayed = false;
 
-window.addEventListener("load", async () => {
+async function pageInit() {
   displayLoadingAnimation(pokemonList);
   const pokemonNames = await get20Pokemons();
 
@@ -16,11 +16,11 @@ window.addEventListener("load", async () => {
   } else {
     displayError(pokemonList, "Wszystkie pokemony się schowały...");
   }
-});
+}
 
 //  SEARCHING ---------------------------------------------------- //
 
-searchBtn.addEventListener("click", async () => {
+async function searchClick() {
   displayLoadingAnimation(pokemonList);
   const pokemonName = searchField.value.toLowerCase();
   if (!pokemonName) {
@@ -28,7 +28,7 @@ searchBtn.addEventListener("click", async () => {
   } else {
     displaySearchResult(pokemonName);
   }
-});
+}
 
 searchField.addEventListener("focus", () => {
   searchField.addEventListener("keydown", (event) => {
@@ -50,6 +50,8 @@ searchField.addEventListener("focus", () => {
     }
   });
 });
+
+// searchField.removeEventListener("blur");
 
 // side panel ---------------------------------------------------- //
 
@@ -147,12 +149,16 @@ function addPokemonBox(surface, pokemonData) {
   surface.classList.remove("loading");
   surface.appendChild(pokemonBox);
 
-  pokemonBox.addEventListener("click", () => {
-    displayDetails(pokemonData);
-    openSidePanel();
-  });
+  pokemonBox.onclick = () => {
+    pokemonClick(pokemonData);
+  };
 
   return surface;
+}
+
+function pokemonClick(pokemonData) {
+  displayDetails(pokemonData);
+  openSidePanel();
 }
 
 function displayDetails(pokemonData) {

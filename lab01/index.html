@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body onload="pageInit()">
     <div class="wrapper">
       <header><h2>Witaj w Pokedex v2!</h2></header>
       <main>
@@ -17,7 +17,7 @@
             type="text"
             id="search__field"
             placeholder="Wpisz nazwę pokemona" />
-          <button id="search__btn">Szukaj</button>
+          <button id="search__btn" onclick="searchClick()">Szukaj</button>
         </section>
         <section id="pokemon-list"></section>
       </main>
