@@ -20,7 +20,7 @@ async function pageInit() {
 
 //  SEARCHING ---------------------------------------------------- //
 
-async function searchClick() {
+function searchClick() {
   displayLoadingAnimation(pokemonList);
   const pokemonName = searchField.value.toLowerCase();
   if (!pokemonName) {
@@ -85,7 +85,7 @@ async function get20Pokemons() {
     const result = await response.json();
     return result.results.map((obj) => obj.name);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return null;
   }
 }
